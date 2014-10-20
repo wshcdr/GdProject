@@ -1,0 +1,39 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+     <EditTextPreference
+         android:key="mapzoomPref"
+         android:defaultValue="12"
+        android:summary="输入缩放级别(0~17)"
+        >
+        
+    </EditTextPreference>
+    
+    <EditTextPreference
+        android:key="editNumPref"
+        android:summary="输入默认号码">
+        
+    </EditTextPreference>
+     <EditTextPreference
+         android:key="ditCityPref"
+        android:summary="输入默认城市">
+        
+    </EditTextPreference>
+     <EditTextPreference
+         android:key="editDesPref"
+        android:summary="详细地址">
+        
+    </EditTextPreference>
+    <CheckBoxPreference
+        android:key="statelite"
+        android:defaultValue="false"
+        android:summary="卫星地图开启">
+        
+    </CheckBoxPreference>
+    <CheckBoxPreference
+        android:key="firststart"
+        
+        android:defaultValue="true"
+        android:summary="初次启动">
+        
+    </CheckBoxPreference>
+    </PreferenceScreen>
