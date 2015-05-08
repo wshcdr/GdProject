@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>输入用户信息</title>
+<style type="text/css">
+div#header {
+	text-align: center
+}
+
+div#content {
+	text-align: center
+}
+
+div#button {
+	text-align: center
+}
+</style>
+<script type="text/javascript">
+function validate_required(field,alerttxt)
+{
+with (field)
+  {
+  if (value==null||value=="")
+    {alert(alerttxt);return false}
+  else {return true}
+}
+}
+function validate_email(field,alerttxt)
+{
+with (field)
+{
+apos=value.indexOf("@")
+dotpos=value.lastIndexOf(".")
+if (apos<1||dotpos-apos<2) 
+  {alert(alerttxt);return false}
+else {return true}
+}
+}
+
+
+
+function validate_form(thisform)
+{
+with (thisform)
+  {
+  if ((validate_required(userID,"用户帐号不能为空!")==false))
+	 {email.focus();return false}
+  if ((validate_required(userPsd,"用户密码不能为空!")==false))
+	 {userPsd.focus();return false}
+  if ((validate_required(name,"用户姓名不能为空!")==false))
+	 {name.focus();return false}
+  if ((validate_required(sex,"用户性别不能为空!")==false))
+	 {sex.focus();return false}
+  if ((validate_required(birthday,"用户出生年月不能为空!输入格式如：19950511")==false))
+	 {birthday.focus();return false}
+  if ((validate_email(email,"用户邮箱格式不正确")==false))
+	 {email.focus();return false}
+  if ((validate_required(phone_personal,"用户联系电话不能为空!")==false))
+	 {phone_personal.focus();return false}
+  if ((validate_required(postcode,"用户帐号不能为空!")==false))
+	 {postcode.focus();return false}
+  if ((validate_required(gradeTime,"毕业时间不能为空!输入格式如：20170628")==false))
+	 {gradeTime.focus();return false}
+  if ((validate_required(workyear,"工作年限不能为空!")==false))
+	 {workyear.focus();return false}
+  if ((validate_required(userID,"用户帐号不能为空!")==false))
+	 {email.focus();return false}
+  if ((validate_required(userID,"用户帐号不能为空!")==false))
+	 {email.focus();return false}
+  
+  }
+}
+</script>
+</head>
+<body>
+	<div id="header">
+		<h1>广东省机器人协会会员注册页面</h1>
+
+		<h2>
+			<a href="#">单位注册</a>请点击跳转
+		</h2>
+	</div>
+	<form action="/userInsert/" enctype="multipart/form-data"
+		onsubmit="return validate_form(this)" method="post">
+		<input type="hidden" name="csrfmiddlewaretoken"
+			value="{% csrf_token %}" />
+		<!-- #解决CSRF verification failed. Request aborted. -->
+		<input type="hidden" name="autoID" />
+		<div id="content">
+			用户帐号：<input type="text" name="userID" onblur="ValidateCheck()"></input>
+			用户密码：<input type="password" name="userPsd" onblur="ValidateCheck()"></input>
+			用户姓名：<input type="text" name="name" onblur="ValidateCheck()"></input><br>
+			用户性别：<input type="text" name="sex"></input> 
+			用户生日：<input type="text" name="birthday"></input> 
+			个人电话：<input type="text" name="phone_personal"></input><br>
+			 用户籍贯：<input type="text" name="hometown"></input> 
+			当前国籍：<input type="text" name="nation"></input>
+			所在党派：<input type="text" name="party"></input><br> 
+			所在单位：<input type="text" name="department"></input> 
+			当前工作：<input type="text"name="job"></input> 
+			联系地址：<input type="text" name="address"></input><br>
+			邮政编码：<input type="text" name="postcode"></input> 
+			毕业院校：<input type="text" name="gradeschool"></input> 
+			毕业时间：<input type="text" name="gradeTime"></input><br> 
+			专业描述：<input type="text" name="major"></input> 
+			健康状况：<input type="text" name="health"></input>
+			最高学位：<input type="text" name="highestDegree"></input><br>
+			职称描述：<input type="text" name="techTitle"></input>
+			 邮箱地址：<input type="text" name="email"></input> 
+			单位电话：<input type="text" name="phone_depart"></input><br>
+			 家庭电话：<input type="text" name="phone_home"></input>
+			 传真号码：<input type="text"name="phone_fax"></input>
+			 主要研究：<input type="text" name="now_major"></input><br>
+			特长描述：<input type="text" name="speciality"></input>
+			工作年限：<input type="text" name="workyear"></input> 
+			语种描述：<input type="text" name="language"></input><br>
+			语言级别：<input type="text" name="language_level"></input> 
+			职位描述：<input type="text" name="Description_job"></input>
+			工作描述：<input type="text"  name="Description_works"></input><br> 
+			个人相片：<input type="file" name="photo"></input><br>
+		</div>
+		<!--  是否验证通过：<input type="hidden" name="isVerify"></input>-->
+		<br> <br> <br>
+					<div id="button">
+						<input type="submit" value="点击提交" /><br>
+					</div>
+	</form>
+	
+</body>
+</html>
