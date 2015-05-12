@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//src/BackAdmin/views.py=utf-8
+encoding//src/UserRegister/registerviews.py=utf-8
 encoding//src/UserRegister/views.py=utf-8

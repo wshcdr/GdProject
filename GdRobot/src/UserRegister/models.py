@@ -34,7 +34,8 @@ class Member(models.Model):
     hometown = models.CharField(max_length=64, blank=True, null=True)
     nation = models.CharField(max_length=64, blank=True, null=True)
     party = models.CharField(max_length=64, blank=True, null=True)
-    photo = models.CharField(max_length=64, blank=True, null=True)
+    photo=models.FileField(upload_to='personalupload/')
+    #photo = models.CharField(max_length=64, blank=True, null=True)
     department = models.CharField(max_length=64)
     job = models.CharField(max_length=64)
     address = models.CharField(max_length=64)
@@ -97,4 +98,48 @@ class Register(models.Model):
 class UploadFiles(models.Model):
     username=models.CharField(max_length=50)
     UploadFiles=models.FileField(upload_to='./upload/')
+
+class Organzation(models.Model):
+    autoid = models.AutoField(db_column='autoID', primary_key=True)  # Field name made lowercase.
+    orgid = models.IntegerField(db_column='orgID')  # Field name made lowercase.
+    orgpsd = models.CharField(db_column='orgPsd', max_length=45)  # Field name made lowercase.
+    orgname = models.CharField(db_column='orgName', max_length=45)  # Field name made lowercase.
+    orgcontact = models.CharField(db_column='orgContact', max_length=45)  # Field name made lowercase.
+    orgphone = models.CharField(db_column='orgPhone', max_length=45)  # Field name made lowercase.
+    orgfax = models.CharField(db_column='orgFax', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgaddress = models.CharField(db_column='orgAddress', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgpostcode = models.CharField(db_column='orgPostcode', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgemail = models.CharField(db_column='orgEmail', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orglrname = models.CharField(db_column='orgLRName', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orglrbirthday = models.DateField(db_column='orgLRBirthday', blank=True, null=True)  # Field name made lowercase.
+    orglrtitle = models.CharField(db_column='orgLRTitle', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orglreducation = models.CharField(db_column='orgLREducation', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orglrphone = models.CharField(db_column='orgLRPhone', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orglrhomephone = models.CharField(db_column='orgLRHomephoe', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orglremail = models.CharField(db_column='orgLREmail', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgrname = models.CharField(db_column='orgRName', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgrbirthday = models.CharField(db_column='orgRBirthday', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgrtitle = models.CharField(db_column='orgRTitle', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgreducation = models.CharField(db_column='orgREducation', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgrphone = models.CharField(db_column='orgRPhone', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgrhomephone = models.CharField(db_column='orgRHomephoe', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgremail = models.CharField(db_column='orgREmail', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    orgresume = models.FileField(upload_to='orgupload/')  # Field name made lowercase.
+    orgdetail = models.TextField(db_column='orgDetail', blank=True, null=True)  # Field name made lowercase.
+    establishtime = models.DateField(db_column='establishTime', blank=True, null=True)  # Field name made lowercase.
+    totalworkers = models.IntegerField(db_column='totalWorkers', blank=True, null=True)  # Field name made lowercase.
+    techworkers = models.IntegerField(db_column='techWorkers', blank=True, null=True)  # Field name made lowercase.
+    hightitle = models.IntegerField(blank=True, null=True)
+    midletitle = models.IntegerField(blank=True, null=True)
+    revenueoneyearago = models.IntegerField(db_column='revenueOneyearAgo', blank=True, null=True)  # Field name made lowercase.
+    revenuetwoyearago = models.IntegerField(db_column='revenueTwoyearAgo', blank=True, null=True)  # Field name made lowercase.
+    revenuethreeyearago = models.IntegerField(db_column='revenueThreeyearAgo', blank=True, null=True)  # Field name made lowercase.
+    mainproduct = models.CharField(db_column='mainProduct', max_length=255, blank=True, null=True)  # Field name made lowercase.eld name made lowercase.
+    wanttitle = models.CharField(db_column='wantTitle', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    isagree = models.CharField(db_column='isAgree', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    isverfity = models.CharField(db_column='isVerfity', max_length=45, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = True
+        db_table = 'organzation'
     

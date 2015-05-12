@@ -39,6 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserRegister',
+    'BackAdmin',
+    'WebContent',
+   
     
 )
 
@@ -113,9 +116,9 @@ STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static')
 STATIC_URL = '/static/'
 #STATIC_URL='/Resourse'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),    
-)
+#STATICFILES_DIRS = (
+ #   os.path.join(BASE_DIR, "static"),    
+#)
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')#≈‰÷√media¬∑æ∂
 MEDIA_URL='/media/'
 
