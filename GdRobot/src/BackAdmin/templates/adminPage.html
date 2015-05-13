@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>后台管理页</title>
+<style type="text/css">
+div#head {
+	text-align: center
+}
+
+div#content {
+	text-align: center
+}
+
+div#button {
+	text-align: center
+}
+</style>
+</head>
+<body>
+<div id="head"></div>
+<div id="content">
+<table align="center">
+<tr>
+
+<form action="/background/userinfoadmin/" method='post'
+>
+<td>
+<h2>用户信息管理</h2></td><td>
+<input type="hidden" name="csrfmiddlewaretoken"
+			value="{% csrf_token %}" />
+<input type="submit" value="确定"></td>
+</form>
+
+<form action="/background/organzationadmin/" method='post'>
+</tr>
+<tr><td>
+<h2> 机构信息管理</h2></td>
+<input type="hidden" name="csrfmiddlewaretoken"
+			value="{% csrf_token %}" />
+<td><input type="submit" value="确定"></td>
+</form>
+</tr>
+</table>
+</div>
+</body>
+</html>

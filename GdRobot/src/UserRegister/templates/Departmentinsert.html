@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<style type="text/css">
+div#header {
+	text-align: center
+}
+
+div#content {
+	text-align: center
+}
+
+div#button {
+	text-align: center
+}
+</style>
+
+<script type="text/javascript">
+function validate_required(field,alerttxt)
+{
+with (field)
+  {
+  if (value==null||value=="")
+    {alert(alerttxt);return false}
+  else {return true}
+}
+}
+function validate_email(field,alerttxt)
+{
+with (field)
+{
+apos=value.indexOf("@")
+dotpos=value.lastIndexOf(".")
+if (apos<1||dotpos-apos<2) 
+  {alert(alerttxt);return false}
+else {return true}
+}
+}
+
+
+
+function validate_form(thisform)
+{
+with (thisform)
+  {
+
+  if ((validate_required(orgID,"单位帐号不能为空!")==false))
+	 {orgID.focus();return false}
+  if ((validate_required(orgPsd,"用户密码不能为空!")==false))
+	 {orgPsd.focus();return false}
+  if ((validate_required(orgname,"单位名不能为空!")==false))
+	 {orgname.focus();return false}
+  if ((validate_required(orgContact,"用户联系人不能为空!")==false))
+	 {orgContact.focus();return false}
+  if ((validate_required(orgphone,"单位电话不能为空!")==false))
+	 {orgphone.focus();return false}
+  
+  if ((validate_required(orgpostcode,"单位邮编不能为空!")==false))
+	 {orgpostcode.focus();return false}
+  if ((validate_required(lRname,"法人代表不能为空!")==false))
+	 {lRname.focus();return false}
+  if ((validate_required(lRphone,"法人联系电话不能为空")==false))
+	 {lRphone.focus();return false}
+  if ((validate_required(orgRname,"入会代表不能为空!")==false))
+	 {orgRname.focus();return false}
+  if ((validate_required(orgRphone,"入会代表手机号码不能为空!")==false))
+	 {orgRphone.focus();return false}
+  if ((validate_required(establishTime,"企业单位成立时间不能为空!")==false))
+	 {email.focus();return false}
+  if ((validate_required(orgRname,"入会代表不能为空!")==false))
+	 {orgRname.focus();return false}
+	if ((validate_required(orgRphone,"入会代表手机号码不能为空!")==false))
+	 {orgRphone.focus();return false}
+	if ((validate_required(establishTime,"企业单位成立时间不能为空!")==false))
+	 {email.focus();return false}
+	 if ((validate_required(orgRphone,"入会代表手机号码不能为空!")==false))
+	 {orgRphone.focus();return false}
+  if ((validate_required(establishTime,"企业单位成立时间不能为空!")==false))
+	 {establishTime.focus();return false}
+  if ((validate_required(totalworkers,"职工总数不能为空!")==false))
+	 {totalworkers.focus();return false}
+	if ((validate_required(techworks,"技术人员数目不能为空!")==false))
+	 {orgRphone.focus();return false}
+	if ((validate_required(highTitle,"高级职称人数不能为空!")==false))
+	 {highTitle.focus();return false}
+	if ((validate_required(midleTitle,"中级技术人员不能为空!")==false))
+	 {midleTitle.focus();return false}
+	if ((validate_required(mainProduct,"主要产品及服务不能为空!")==false))
+	 {mainProduct.focus();return false}
+	if ((validate_required(midleTitle,"中级技术人员不能为空!")==false))
+	 {midleTitle.focus();return false}
+	if ((validate_required(mainProduct,"主要产品及服务不能为空!")==false))
+	 {mainProduct.focus();return false}
+	if ((validate_required(wantTitle,"申请职位不能为空!")==false))
+	 {wantTitle.focus();return false}
+	if ((validate_required(orgemail,"单位邮箱不能为空!")==false))
+	 {orgemail.focus();return false}
+	if ((validate_required(lRemail,"法人代表邮箱不能为空!")==false))
+	 {lRemail.focus();return false}
+	if ((validate_required(orgRemail,"入会代表邮箱不能为空!")==false))
+	 {orgRemail.focus();return false}
+	
+	
+  if ((validate_email(orgemail,"用户邮箱格式不正确")==false))
+	 {orgemail.focus();return false}
+  if ((validate_email(lRemail,"用户邮箱格式不正确")==false))
+	 {lRemail.focus();return false}
+  if ((validate_email(orgRemail,"用户邮箱格式不正确")==false))
+	 {orgRemail.focus();return false}
+  if ((validate_required(resume,"简历文件没有上传!")==false))
+	 {resume.focus();return false}
+  
+  }
+}
+</script>
+</head>
+<body>
+	<div id="header">
+		<h1>广东省机器人协会入会登记表</h1>
+
+		<h2>单位注册</h2>
+	</div>
+	<form action="/organzationInsert/" enctype="multipart/form-data"
+		onsubmit="return validate_form(this)" method="post">
+		<input type="hidden" name="csrfmiddlewaretoken"
+			value="{% csrf_token %}" />
+		<!-- #解决CSRF verification failed. Request aborted. -->
+		<input type="hidden" name="autoID" />
+		<div id="content">
+			<table>
+				<tr>
+					<td>单位帐号:</td>
+					<td><input type="text" name="orgID" onblur="ValidateCheck()"></input></td>
+					<td>单位密码:</td>
+					<td><input type="password" name="orgPsd"
+						onblur="ValidateCheck()"></input></td>
+					<td>单位名称:</td>
+					<td><input type="text" name="orgname" onblur="ValidateCheck()"></input></td>
+					<td>联系人员:</td>
+					<td><input type="text" name="orgContact"
+						onblur="ValidateCheck()"></input></td>
+				</tr>
+				<tr>
+					<td>单位电话:</td>
+					<td><input type="text" name="orgphone"></input></td>
+					<td>传真号码:</td>
+					<td><input type="text" name="orgfax"></input></td>
+					<td>联系地址:</td>
+					<td><input type="text" name="orgaddress"></input></td>
+					<td>邮政编码:</td>
+					<td><input type="text" name="orgpostcode"></input></td>
+				</tr>
+				<tr>
+					<td>邮箱地址:</td>
+					<td><input type="text" name="orgemail"></input></td>
+					<td>法定代表:</td>
+					<td><input type="text" name="lRname"></input></td>
+					<td>出生年月:</td>
+					<td><input type="text" name="lRbirthday"></input></td>
+					<td>法人职务:</td>
+					<td><input type="text" name="lRtitle"></input></td>
+				</tr>
+				<tr>
+					<td>法人学历:</td>
+					<td><input type="text" name="lReducation"></input></td>
+					<td>手机号码:</td>
+					<td><input type="text" name="lRphone"></input></td>
+					<td>法人座机:</td>
+					<td><input type="text" name="lRhomephone"></input></td>
+					<td>法人邮箱:</td>
+					<td><input type="text" name="lRemail"></input></td>
+				</tr>
+				<tr>
+					<td>入会代表:</td>
+					<td><input type="text" name="orgRname"></input></td>
+					<td>出生年月:</td>
+					<td><input type="text" name="orgRBirthday"></input></td>
+					<td>代表职务:</td>
+					<td><input type="text" name="orgRtitle"></input></td>
+					<td>代表学历:</td>
+					<td><input type="text" name="orgReducation"></input></td>
+				</tr>
+				<tr>
+					<td>手机号码:</td>
+					<td><input type="text" name="orgRphone"></input></td>
+					<td>代表座机:</td>
+					<td><input type="text" name="orgRhomephone"></input></td>
+					<td>代表邮箱:</td>
+					<td><input type="text" name="orgRemail"></input></td>
+					<td>成立时间:</td>
+					<td><input type="text" name="establishTime"></input></td>
+				</tr>
+				<tr>
+					<td>职工总数:</td>
+					<td><input type="text" name="totalworkers"></input></td>
+					<td>技术人员:</td>
+					<td><input type="text" name="techworks"></input></td>
+					<td>高级职称:</td>
+					<td><input type="text" name="highTitle"></input></td>
+					<td>中级职称:</td>
+					<td><input type="text" name="midleTitle"></input></td>
+				</tr>
+				<tr>
+					<td>14年营业额：</td>
+					<td><input type="text" name="Revenue14"></input></td>
+
+					<td>13年营业额：</td>
+					<td><input type="text" name="Revenue13"></input></td>
+					<td>12年营业额：</td>
+					<td><input type="text" name="Revenue12"></input></td>
+					<td >主要产品及服务：</td>
+					<td >
+					<!-- <input type="text" name="mainProduct" /> -->
+					<textarea rows="1" cols="20" name="mainProduct"></textarea>
+					</td>
+					</tr>
+				
+				<tr>
+					<td>单位现状:</td>
+					<td><select name="orgdetails">
+							<option value="国有企业">国有</option>
+							<option value="民营企业">民营</option>
+							<option value="外资企业">外资</option>
+							<option value="合资企业">合资</option>
+							<option value="高新技术企业">高新技术企业</option>
+					</select></td>
+					<td>申请职位:</td>
+					<td><select name="wantTitle">
+							<option value="常务副会长">常务副会长</option>
+							<option value="副会长">副会长</option>
+							<option value="常务理事">常务理事</option>
+							<option value="理事">理事</option>
+							<option value="会员">会员</option>
+					</select></td>
+					<td>法人简历:</td>
+					<td><input type="file" name="resume"></input></td>
+				</tr>
+				</div>
+				<!--  是否验证通过：<input type="hidden" name="isVerify"></input>-->
+			</table>
+			<div id="button">
+				<input type="submit" value="点击提交" /><br>
+			</div>
+	</form>
+
+</body>
+</html>

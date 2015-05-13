@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>用户信息管理</title>
+</head>
+<body>
+<form action='/organzation/userCheck/' method="post">
+<input type="hidden" name="csrfmiddlewaretoken"
+			value="{% csrf_token %}" />
+{% for user in memberDetails %}
+<table style="border-collapse:collapse" border="1" cellpadding="10" cellspacing="5">
+<tr>
+<td width="40">用户帐号</td><td width="40">{{user.userid }}</td>
+<td width="40">用户密码</td><td width="40">{{user.userpsd}}</td>
+<td width="40">用户姓名</td><td width="40">{{user.name}}</td>
+<td width="40">出生年月</td><td width="40">{{user.birthday}}</td>
+<td width="40">用户籍贯</td><td width="40">{{user.hometown}}</td>
+<td width="40">用户国籍</td><td width="40">{{user.nation}}</td>
+<td width="40">用户党派</td><td width="40">{{user.party}}</td>
+<td width="40">用户头像</td><td width="40"><img src={{user.photo}}/></td>
+</tr>
+<tr>
+<td  width="40" >用户部门</td><td width="40">{{user.department}}</td>
+<td width="40">当前工作</td><td width="40">{{user.job}}</td>
+<td width="40">联系地址</td><td width="40">{{user.address}}</td>
+<td width="40">邮政编码</td><td width="40">{{user.postcode}}</td>
+<td width="40">毕业院校</td><td width="40">{{user.gradschool}}</td>
+<td width="40">毕业时间</td><td width="40"> {{user.gradtime}}</td>
+<td width="40">主修专业</td><td width="40">{{user.major}}</td>
+<td width="40">健康状况</td><td width="40">{{user.health}}</td>
+</tr>
+<tr>
+<td width="40">最高学位</td><td width="40">{{user.highestdegree}}</td>
+<td width="40">当前职称</td><td width="40">{{user.techtitle}}</td>
+<td width="40">邮箱地址</td><td width="40">{{user.email}}</td>
+<td width="40">部门电话</td><td width="40"> {{user.phone_depart}}</td>
+<td width="40">个人电话</td><td width="40"> {{user.phone_personal}}</td>
+<td width="40">家庭电话</td><td width="40">{{user.phone_home}}</td>
+<td width="40">传真号码</td><td width="40">{{user.phone_fax}}</td>
+<td width="40">当前专业</td><td width="40">{{user.now_major}}</td>
+</tr>
+<tr>
+<td width="40">个人特长</td><td width="40">{{user.speciality}}</td>
+<td width="40">工作年限</td><td width="40">{{user.workyears}}</td>
+<td width="40">所会语种</td><td width="40">{{user.language}}</td>
+<td width="40">语言级别</td><td width="40">{{user.language_level}}</td>
+<td width="40">个人电话</td><td width="40">{{user.phone_personal}}</td>
+<td width="40">职位描述</td><td width="40">{{user.description_job}}</td>
+<td width="40">工作简介</td><td width="40">{{user.description_works}}</td>
+<td>是否通过验证</td><td><input type="checkbox"/></td>
+</tr>
+
+
+
+{% endfor %}
+</form>
+
+</body>
+</html>

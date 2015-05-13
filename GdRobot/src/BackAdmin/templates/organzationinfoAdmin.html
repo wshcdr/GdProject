@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>组织单位管理页</title>
+</head>
+<body>
+<h2>组织单位管理页面</h2>
+<form action='/organzation/organazationDetailsCheck/' method="post">
+
+<input type="hidden" name="csrfmiddlewaretoken"
+			value="{% csrf_token %}" />
+{% for organazationDetails in organazationDetails %}
+
+<table style="border-collapse:collapse" border="1" cellpadding="10" cellspacing="5">
+<tr>
+<td width="40">单位帐号</td><td width="40">{{organazationDetails.orgid }}</td>
+<td width="40">单位密码</td><td width="40">{{organazationDetails.orgpsd}}</td>
+<td width="40">单位名称</td><td width="40">{{organazationDetails.orgname}}</td>
+<td width="40">联系人员</td><td width="40">{{organazationDetails.orgcontact}}</td>
+<td width="40">单位电话</td><td width="40">{{organazationDetails.orgphone}}</td>
+<td width="40">传真号码</td><td width="40">{{organazationDetails.orgfax}}</td>
+<td width="40">联系地址</td><td width="40">{{organazationDetails.orgaddress}}</td>
+<td width="40">邮政编码</td><td width="40">{{organazationDetails.orgpostcode}}</td>
+</tr>
+<tr>
+<td  width="40" >邮箱地址</td><td width="40">{{organazationDetails.orgemail}}</td>
+<td width="40">法人代表</td><td width="40">{{organazationDetails.orglrname}}</td>
+<td width="40">出生年月</td><td width="40">{{organazationDetails.orglrbirthday}}</td>
+<td width="40">法人职务</td><td width="40">{{organazationDetails.orglrtitle}}</td>
+<td width="40">法人学历</td><td width="40">{{organazationDetails.orglreducation}}</td>
+<td width="40">手机号码</td><td width="40"> {{organazationDetails.orglrphone}}</td>
+<td width="40">座机号码</td><td width="40">{{organazationDetails.orglrhomephone}}</td>
+<td width="40">法人邮箱</td><td width="40">{{organazationDetails.orglremail}}</td>
+</tr>
+<tr>
+<td width="40">入会代表</td><td width="40">{{organazationDetails.orgrname}}</td>
+<td width="40">出生年月</td><td width="40">{{organazationDetails.orgrbirthday}}</td>
+<td width="40">代表职称</td><td width="40">{{organazationDetails.orgrtitle}}</td>
+<td width="40">代表学历</td><td width="40"> {{organazationDetails.orgreducation}}</td>
+<td width="40">手机号码</td><td width="40">{{organazationDetails.orgrphone}}</td>
+<td width="40">代表座机</td><td width="40">{{organazationDetails.orgrhomephone}}</td>
+<td width="40">代表邮箱</td><td width="40">{{organazationDetails.orgremail}}</td>
+<td width="40">单位成立时间</td><td width="40">{{organazationDetails.establishtime}}</td>
+</tr>
+<tr>
+
+<td width="40">职工总数</td><td width="40">{{organazationDetails.totalworkers}}</td>
+<td width="40">技术人员数量</td><td width="40">{{organazationDetails.techworkers}}</td>
+<td width="40">高级职称人数</td><td width="40">{{organazationDetails.hightitle}}</td>
+<td width="40">中级职称人数</td><td width="40">{{organazationDetails.midletitle}}</td>
+<td width="40">14年营业额</td><td width="40">{{organazationDetails.revenueoneyearago}}</td>
+<td width="40">13年营业额</td><td width="40">{{organazationDetails.revenuetwoyearago}}</td>
+<td width="40">12年营业额</td><td width="40">{{organazationDetails.revenuethreeyearago}}</td>
+<td width="40">主要产品及服务</td><td width="40">{{organazationDetails.mainproduct}}</td>
+</tr>
+
+<tr>
+
+<td width="40">单位现状</td><td width="40">{{organazationDetails.orgdetail}}</td>
+<td width="40">申请职务</td><td width="40">{{organazationDetails.wanttitle}}</td>
+<td width="40">法人简历</td><td width="40"><a href="{{organazationDetails.orgresume }}">简历下载</a></td>
+<td>是否通过验证</td><td><input type="checkbox"/></td>
+
+</tr>
+</table>
+
+{% endfor %}
+<input type="submit" value="确定"></input>
+</form>
+</body>
+</html>
