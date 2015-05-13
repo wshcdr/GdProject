@@ -7,7 +7,7 @@
 </head>
 <body>
 <h2>组织单位管理页面</h2>
-<form action='/organzation/organazationDetailsCheck/' method="post">
+<form action='/background/organazationDetailsCheck/' method="post">
 
 <input type="hidden" name="csrfmiddlewaretoken"
 			value="{% csrf_token %}" />
@@ -15,6 +15,7 @@
 
 <table style="border-collapse:collapse" border="1" cellpadding="10" cellspacing="5">
 <tr>
+<td width="40">单位编号</td><td width="40">{{organazationDetails.autoid }}</td>
 <td width="40">单位帐号</td><td width="40">{{organazationDetails.orgid }}</td>
 <td width="40">单位密码</td><td width="40">{{organazationDetails.orgpsd}}</td>
 <td width="40">单位名称</td><td width="40">{{organazationDetails.orgname}}</td>
@@ -33,9 +34,10 @@
 <td width="40">手机号码</td><td width="40"> {{organazationDetails.orglrphone}}</td>
 <td width="40">座机号码</td><td width="40">{{organazationDetails.orglrhomephone}}</td>
 <td width="40">法人邮箱</td><td width="40">{{organazationDetails.orglremail}}</td>
+<td width="40">入会代表</td><td width="40">{{organazationDetails.orgrname}}</td>
 </tr>
 <tr>
-<td width="40">入会代表</td><td width="40">{{organazationDetails.orgrname}}</td>
+
 <td width="40">出生年月</td><td width="40">{{organazationDetails.orgrbirthday}}</td>
 <td width="40">代表职称</td><td width="40">{{organazationDetails.orgrtitle}}</td>
 <td width="40">代表学历</td><td width="40"> {{organazationDetails.orgreducation}}</td>
@@ -43,29 +45,28 @@
 <td width="40">代表座机</td><td width="40">{{organazationDetails.orgrhomephone}}</td>
 <td width="40">代表邮箱</td><td width="40">{{organazationDetails.orgremail}}</td>
 <td width="40">单位成立时间</td><td width="40">{{organazationDetails.establishtime}}</td>
-</tr>
-<tr>
 
 <td width="40">职工总数</td><td width="40">{{organazationDetails.totalworkers}}</td>
 <td width="40">技术人员数量</td><td width="40">{{organazationDetails.techworkers}}</td>
+</tr>
+<tr>
+
 <td width="40">高级职称人数</td><td width="40">{{organazationDetails.hightitle}}</td>
 <td width="40">中级职称人数</td><td width="40">{{organazationDetails.midletitle}}</td>
 <td width="40">14年营业额</td><td width="40">{{organazationDetails.revenueoneyearago}}</td>
 <td width="40">13年营业额</td><td width="40">{{organazationDetails.revenuetwoyearago}}</td>
 <td width="40">12年营业额</td><td width="40">{{organazationDetails.revenuethreeyearago}}</td>
 <td width="40">主要产品及服务</td><td width="40">{{organazationDetails.mainproduct}}</td>
-</tr>
-
-<tr>
 
 <td width="40">单位现状</td><td width="40">{{organazationDetails.orgdetail}}</td>
 <td width="40">申请职务</td><td width="40">{{organazationDetails.wanttitle}}</td>
 <td width="40">法人简历</td><td width="40"><a href="{{organazationDetails.orgresume }}">简历下载</a></td>
-<td>是否通过验证</td><td><input type="checkbox"/></td>
-
 </tr>
-</table>
+<tr>
+</tr>
 
+</table>
+是否通过验证<input type="checkbox" name="agree"/>
 {% endfor %}
 <input type="submit" value="确定"></input>
 </form>

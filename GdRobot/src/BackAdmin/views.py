@@ -25,7 +25,7 @@ def organzationAdmin(request):
     if request.method=='POST':
         organazationDetails=Organzation.objects.all()
         
-        print(organazationDetails.count())
+       # print(organazationDetails.count())
         return render_to_response('organzationinfoAdmin.html', locals())
     else:
         return render_to_response('errorPage.html')
@@ -33,3 +33,12 @@ def Log(request):
     pass
 def SomeOperation(request):
     pass
+@csrf_exempt
+def organzationAdminCheck(request):
+    
+    if request.method=='POST':
+        print("*********")
+        
+        orgResult=request.POST.getlist('agree','test')
+        print(orgResult)
+        return HttpResponse('组织机构审查！！！')
