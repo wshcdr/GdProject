@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 页面输出传递过来的数据，此种情况下只会显示出最后的数据，需要遍历才可以完整的输出数据 -->
+	<!-- <div>{{userID}}</div>
+<div>{{userpsd}}</div>
+<div>{{name}}</div>
+<div>{{sex}}</div>
+<div>{{birthday}}</div>
+<div>{{hometown}}</div>
+
+<div>{{name}}</div> -->
+	<!-- 遍历数据库中传过来的数据 -->
+	<form action='/uservalidate/' method='get'>
+		{% for user in userdata %} <br> <!-- 用户自增长ID:{{user.0}} -->
+			用户编号:{{user.1}} 用户密码:{{user.2}} 用户姓名:{{user.3}} 用户性别：{{user.4}}
+			出生年月:{{user.5}} 用户籍贯:{{user.6}} 用户国籍:{{user.7}} 用户党派：{{user.8}}<br>
+				用户头像:{{user.9}} 用户部门:{{user.10}} 用户职业:{{user.11}} 用户地址：{{user.12}}
+				地址邮编:{{user.13}} 毕业院校:{{user.14}} 毕业时间:{{user.15}} 主修专业：{{user.16}}<br>
+					健康状况:{{user.17}} 最高学位:{{user.18}} 教职头衔:{{user.19}} 联系邮箱：{{user.20}}
+					部门电话:{{user.21}} 个人电话:{{user.22}} 家庭电话:{{user.23}} 传真号码：{{user.24}}<br>
+						当前专业:{{user.25}} 用户特长:{{user.26}} 工作年限:{{user.27}}
+						用户语种：{{user.28}} 语言级别:{{user.29}} 职业描述:{{user.30}}
+						工作描述:{{user.31}} 用户性别：{{user.32}}<br> 是否验证通过{{user.33}} <input
+							type="checkbox" value="同意申请" name="agree"></input> {%endfor%}<br>
+								<input type="submit" value="确定"></input> </br></br>
+				</br>
+			</br>
+		</br>
+	</form>
+</body>
+</html>
