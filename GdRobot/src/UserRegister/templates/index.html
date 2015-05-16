@@ -6,9 +6,9 @@
 <title>Insert title here</title>
 </head>
 <head>
-<title>Lanuncher Website Template | Home :: W3layouts</title> 
+<title>广东省机器人协会</title> 
 {%load staticfiles%}
-<link href="static/css/ondevelopment_style.css" rel="stylesheet"
+<link href="{% static "css/ondevelopment_style.css" %}" rel="stylesheet"
 	type="text/css" media="all" />
 <meta name="keywords"
 	content="Lanuncher iphone web template, Andriod web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
@@ -30,10 +30,13 @@
 				<h2>当前日期为 {{currentday}}</h2>
 				<h1>距离上线还有</h1>
 				{{day}}天 /{{hours}}小时/{{second}}秒
+				<br>
+				<br>
+				<a href="/registerpage/"><h2>当前接受会员注册</h2></a>
 			</div>
 
 			<div class="right-content">
-				{%load staticfiles%} <img src="{%static "images/developmentbanner.png" %}"title="banner-name" />
+				{%load staticfiles%} <img src="{%static "images/developmentbanner.png" %}" title="banner-name" />
 			</div>
 			<div class="clear"></div>
 		</div>

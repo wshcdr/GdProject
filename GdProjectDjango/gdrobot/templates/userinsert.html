@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>输入用户信息</title>
+<style type="text/css">
+div#header {
+	text-align: center
+}
+
+div#content {
+	text-align: center
+}
+
+div#button {
+	text-align: center
+}
+</style>
+<script type="text/javascript">
+function validate_required(field,alerttxt)
+{
+with (field)
+  {
+  if (value==null||value=="")
+    {alert(alerttxt);return false}
+  else {return true}
+}
+}
+function validate_email(field,alerttxt)
+{
+with (field)
+{
+apos=value.indexOf("@")
+dotpos=value.lastIndexOf(".")
+if (apos<1||dotpos-apos<2) 
+  {alert(alerttxt);return false}
+else {return true}
+}
+}
+
+
+
+function validate_form(thisform)
+{
+with (thisform)
+  {
+  if ((validate_required(userID,"用户帐号不能为空!")==false))
+	 {email.focus();return false}
+  if ((validate_required(userPsd,"用户密码不能为空!")==false))
+	 {userPsd.focus();return false}
+  if ((validate_required(name,"用户姓名不能为空!")==false))
+	 {name.focus();return false}
+  if ((validate_required(sex,"用户性别不能为空!")==false))
+	 {sex.focus();return false}
+  if ((validate_required(birthday,"用户出生年月不能为空!输入格式如：19950511")==false))
+	 {birthday.focus();return false}
+  if ((validate_email(email,"用户邮箱格式不正确")==false))
+	 {email.focus();return false}
+  if ((validate_required(phone_personal,"用户联系电话不能为空!")==false))
+	 {phone_personal.focus();return false}
+  if ((validate_required(postcode,"用户邮编不能为空!")==false))
+	 {postcode.focus();return false}
+  if ((validate_required(gradeTime,"毕业时间不能为空!输入格式如：20170628")==false))
+	 {gradeTime.focus();return false}
+  if ((validate_required(workyear,"工作年限不能为空!")==false))
+	 {workyear.focus();return false}
+  if ((validate_required(userID,"用户帐号不能为空!")==false))
+	 {email.focus();return false}
+  if ((validate_required(userID,"用户帐号不能为空!")==false))
+	 {email.focus();return false}
+  
+  }
+}
+</script>
+</head>
+<body>
+	<div id="header">
+		<h1>广东省机器人协会会员注册页面</h1>
+
+		<h2>
+			<a href="/register/organzationinfoSubmit/">单位注册</a>请点击跳转
+		</h2>
+	</div>
+	<form action="/registerpage/userinfoSubmit/userInsert/" enctype="multipart/form-data"
+		onsubmit="return validate_form(this)" method="post">
+		<input type="hidden" name="csrfmiddlewaretoken"
+			value="{% csrf_token %}" />
+		<!-- #解决CSRF verification failed. Request aborted. -->
+		<input type="hidden" name="autoID" />
+		<div id="content">
+        <table>
+        <tr>
+        <td>
+			用户帐号：</td><td><input type="text" name="userID" onblur="ValidateCheck()"></input></td>
+			<td>用户密码：</td><td><input type="password" name="userPsd" onblur="ValidateCheck()"></input></td>
+			<td>用户姓名：</td><td><input type="text" name="name" onblur="ValidateCheck()"></input></td>
+			<td>用户性别：</td><td> 
+            <select name="sex">
+							<option value="男">男</option>
+							<option value="女">女</option>
+							
+					</select></td>
+		</tr>
+        <tr>
+        	<td>用户生日：</td><td><input type="text" name="birthday" value="1992-01-02"></input> </td>
+			<td>个人电话：</td><td><input type="text" name="phone_personal"></input></td>
+			<td> 用户籍贯：</td><td><input type="text" name="hometown" value="广东省广州市"></input></td> 
+			<td>当前国籍：</td><td><input type="text" name="nation" value="中国"></input></td>
+            </tr>
+            <tr>
+            <td>
+			所在党派：</td><td><input type="text" name="party" value="中国共产党"></input><br></td> 
+			<td>所在单位：</td><td><input type="text" name="department" value="广东工业大学"></input> </td>
+            <td>
+			当前工作：</td><td><input type="text"name="job"></input></td>
+            <td> 
+			联系地址：</td><td><input type="text" name="address"></input></td>
+            </tr>
+            <tr>
+            <td>
+			邮政编码：</td><td><input type="text" name="postcode" value="510006"></input></td>
+            <td> 
+			毕业院校：</td><td><input type="text" name="gradeschool"></input> </td>
+            <td>
+			毕业时间：</td><td><input type="text" name="gradeTime" value="2017-06-38"></input></td>
+            <td> 
+			专业描述：</td><td><input type="text" name="major"></input></td>
+            </tr>
+            <tr>
+            <td> 
+			健康状况：</td><td><input type="text" name="health" value="健康"></input></td>
+            <td>
+			最高学历：</td><td><input type="text" name="highestDegree"></input></td>
+            <td>
+			职称描述：</td><td><input type="text" name="techTitle"></input></td>
+			 <td>邮箱地址：</td><td><input type="text" name="email"></input></td>
+             </tr>
+             <tr> 
+             <td>
+			单位电话：</td><td><input type="text" name="phone_depart"></input></td>
+            <td>
+			 家庭电话：</td><td><input type="text" name="phone_home"></input></td>
+             
+			 <td>传真号码：</td><td><input type="text"name="phone_fax"></input></td>
+             <td>
+			 主要研究：</td><td><input type="text" name="now_major"></input></td>
+             <td>  </tr>
+            <tr>
+			<td>特长描述：</td><td><input type="text" name="speciality"></input></td>
+          
+			<td>工作年限：</td><td><input type="text" name="workyear" value="10"></input></td> 
+			<td>语种描述：</td><td>
+			
+			<input type="text" name="language" ></input>
+			</td>
+            <td>
+			语言级别：</td><td><input type="text" name="language_level" value="cet-6"></input> </td>
+            </tr>
+            <tr>
+            <td>
+			职位描述：</td><td><input type="text" name="Description_job"></input></td>
+            <td>
+			工作描述：</td><td><input type="text"  name="Description_works"></input><br></td>
+            <td> 
+			个人相片：</td><td><input type="file" name="photo"></input></td>
+            </table>
+		</div>
+		<!--  是否验证通过：<input type="hidden" name="isVerify"></input>-->
+		<br> <br> <br>
+					<div id="button">
+						<input type="submit" value="点击提交" /><br>
+					</div>
+	</form>
+	
+</body>
+</html>

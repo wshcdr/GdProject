@@ -79,7 +79,7 @@ with (thisform)
 		<h1>广东省机器人协会会员注册页面</h1>
 
 		<h2>
-			<a href="Departmentinsert.html">单位注册</a>请点击跳转
+			<a href="/register/organzationinfoSubmit/">单位注册</a>请点击跳转
 		</h2>
 	</div>
 	<form action="/userInsert/" enctype="multipart/form-data"
@@ -103,15 +103,15 @@ with (thisform)
 					</select></td>
 		</tr>
         <tr>
-        	<td>用户生日：</td><td><input type="text" name="birthday"></input> </td>
+        	<td>用户生日：</td><td><input type="text" name="birthday" value="1992-01-02"></input> </td>
 			<td>个人电话：</td><td><input type="text" name="phone_personal"></input></td>
-			<td> 用户籍贯：</td><td><input type="text" name="hometown"></input></td> 
-			<td>当前国籍：</td><td><input type="text" name="nation"></input></td>
+			<td> 用户籍贯：</td><td><input type="text" name="hometown" value="广东省广州市"></input></td> 
+			<td>当前国籍：</td><td><input type="text" name="nation" value="中国"></input></td>
             </tr>
             <tr>
             <td>
-			所在党派：</td><td><input type="text" name="party"></input><br></td> 
-			<td>所在单位：</td><td><input type="text" name="department"></input> </td>
+			所在党派：</td><td><input type="text" name="party" value="中国共产党"></input><br></td> 
+			<td>所在单位：</td><td><input type="text" name="department" value="广东工业大学"></input> </td>
             <td>
 			当前工作：</td><td><input type="text"name="job"></input></td>
             <td> 
@@ -119,17 +119,17 @@ with (thisform)
             </tr>
             <tr>
             <td>
-			邮政编码：</td><td><input type="text" name="postcode"></input></td>
+			邮政编码：</td><td><input type="text" name="postcode" value="510006"></input></td>
             <td> 
 			毕业院校：</td><td><input type="text" name="gradeschool"></input> </td>
             <td>
-			毕业时间：</td><td><input type="text" name="gradeTime"></input></td>
+			毕业时间：</td><td><input type="text" name="gradeTime" value="2017-06-38"></input></td>
             <td> 
 			专业描述：</td><td><input type="text" name="major"></input></td>
             </tr>
             <tr>
             <td> 
-			健康状况：</td><td><input type="text" name="health"></input></td>
+			健康状况：</td><td><input type="text" name="health" value="健康"></input></td>
             <td>
 			最高学历：</td><td><input type="text" name="highestDegree"></input></td>
             <td>
@@ -149,10 +149,13 @@ with (thisform)
             <tr>
 			<td>特长描述：</td><td><input type="text" name="speciality"></input></td>
           
-			<td>工作年限：</td><td><input type="text" name="workyear"></input></td> 
-			<td>语种描述：</td><td><input type="text" name="language"></input></td>
+			<td>工作年限：</td><td><input type="text" name="workyear" value="10"></input></td> 
+			<td>语种描述：</td><td>
+			
+			<input type="text" name="language" ></input>
+			</td>
             <td>
-			语言级别：</td><td><input type="text" name="language_level"></input> </td>
+			语言级别：</td><td><input type="text" name="language_level" value="cet-6"></input> </td>
             </tr>
             <tr>
             <td>

@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^$', index),#µÇÂ¼ÏÔÊ¾Ò³
     url(r'^register/', include('UserRegister.registerurls')),
     url(r'^background/', include('BackAdmin.Adminurls')),
-    
+    url(r'^robot/', include('WebContent.Contenturls')),
     
     
 ]

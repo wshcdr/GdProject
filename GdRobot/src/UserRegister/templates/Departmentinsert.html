@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>组织单位注册页</title>
 <style type="text/css">
 div#header {
 	text-align: center
@@ -40,8 +40,111 @@ else {return true}
 }
 }
 
+function check(Form) 
+{ 
+for (i = 0; i < Form.length; i++) 
+{ 
+if (Form.elements[i].value == "") 
+{ 
+alert("请填写完整!") 
+Form.elements[i].focus(); 
+return; 
+} 
+/*
+if (Form.elements[i].name == "lRbirthday") 
+{ 
+var date = Form.elements[i].value; 
+len = date.length; 
+var datearray = date.split("-") 
+//alert(datearray[1]); 
+var year = parseInt(datearray[0]); 
+var month = parseInt(datearray[1]); 
+var day = parseInt(datearray[2]); 
 
-
+if (len == "") 
+{ 
+alert("时间不能为空"); 
+return; 
+} 
+else if (len > 10) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+else if (isNaN(year)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+else if ((year > 9999) || (year < 100)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+else if (isNaN(month)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+else if ((month > 12) || (month < 1)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+else if (isNaN(day)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+else 
+{ 
+switch (month) 
+{ 
+case 1: 
+case 3: 
+case 5: 
+case 7: 
+case 8: 
+case 10: 
+case 12: 
+if ((dat < 0) || (day > 31)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+break; 
+case 4: 
+case 6: 
+case 9: 
+case 11: 
+if ((day < 0) || (day > 30)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+break; 
+default: 
+if ((year % 100 == 0) && (year % 4 == 0)) 
+{ 
+if ((day < 0) || (day > 29)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+} 
+else 
+{ 
+if ((day < 0) || (day > 28)) 
+{ 
+alert("日期格式不正确"); 
+return; 
+} 
+} 
+} 
+} 
+} 
+} 
+*/
 function validate_form(thisform)
 {
 with (thisform)
@@ -121,7 +224,7 @@ with (thisform)
 	<div id="header">
 		<h1>广东省机器人协会入会登记表</h1>
 
-		<h2>单位注册</h2>
+		<h2>单位注册</h2><h4>所有资料必须填写完整</h4>
 	</div>
 	<form action="/organzationInsert/" enctype="multipart/form-data"
 		onsubmit="return validate_form(this)" method="post">
@@ -159,7 +262,7 @@ with (thisform)
 					<td>法定代表:</td>
 					<td><input type="text" name="lRname"></input></td>
 					<td>出生年月:</td>
-					<td><input type="text" name="lRbirthday"></input></td>
+					<td><input type="text" name="lRbirthday" value="1992-01-02"></input></td>
 					<td>法人职务:</td>
 					<td><input type="text" name="lRtitle"></input></td>
 				</tr>
@@ -177,7 +280,7 @@ with (thisform)
 					<td>入会代表:</td>
 					<td><input type="text" name="orgRname"></input></td>
 					<td>出生年月:</td>
-					<td><input type="text" name="orgRBirthday"></input></td>
+					<td><input type="text" name="orgRBirthday" value="1992-01-01"></input></td>
 					<td>代表职务:</td>
 					<td><input type="text" name="orgRtitle"></input></td>
 					<td>代表学历:</td>
@@ -191,7 +294,7 @@ with (thisform)
 					<td>代表邮箱:</td>
 					<td><input type="text" name="orgRemail"></input></td>
 					<td>成立时间:</td>
-					<td><input type="text" name="establishTime"></input></td>
+					<td><input type="text" name="establishTime"  value="1990-01-01"></input></td>
 				</tr>
 				<tr>
 					<td>职工总数:</td>
